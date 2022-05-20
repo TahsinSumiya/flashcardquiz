@@ -1,38 +1,93 @@
-.App {
-  text-align: center;
+body{
+  background-color: aliceblue;
+  margin:0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header{
+  display: flex;
+ justify-content: flex-end;
+ align-items: center;
+ flex-wrap: wrap;
+ background-color: white;
+ box-shadow: 0 0 5px 2px rgb(66, 64, 64) ;
+ padding: 0 1.5rem;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form-group{
   display: flex;
   flex-direction: column;
-  align-items: center;
+ margin: .5rem;
+}
+
+.form-group >label{
+  color: grey;
+  font-size: .70rem;
+  margin-bottom: .25rem;
+}
+.btn{
+  background-color: rgb(68, 142, 192);
+  color: aliceblue;
+  padding: .5rem 1rem;
+  border-radius: .3rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background-color: aliceblue;
+  color: black;
+}
+.card-grid{
+ display: grid;
+ align-items: center;
+ grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+ gap: 1rem;
+}
+.container{
+  max-width:1000px;
+  margin: 1rem 2rem;
+}
+.card{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  position: relative;
+  border-radius: .25rem;
+  box-shadow: 0 0 5px 2px rgb(66, 64, 64);
+  transform-style: preserve-3d;
+  background-color: white; 
+  height: 150px;
+ 
+  transition: 150ms;
+  cursor: pointer;
+  transform: perspective(1000px)  rotateY(var(--rotate-y, 0)) translateY(var(--traslate-y ,0));
 }
-
-.App-link {
-  color: #61dafb;
+.card:hover{
+  --traslate-y: -2px;
+  box-shadow: 0 0 5px 2px rgb(37, 37, 37);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card.flip{
+  --rotate-y: 180deg;
+  background-color: rgb(231, 227, 227);
+}
+.card.front{
+  left: 0;
+}
+.card .front,
+.card .back{
+  position: absolute;
+  padding: 1rem;
+  backface-visibility: hidden;
+  
+}
+.card .back{
+  transform: rotateY(180deg);
+  
+}
+.flashcard-options{
+  margin-top: .5rem;
+}
+.flashcard_option{
+  margin-top: .35rem;
+  color: rgb(57, 58, 58);
+  font-size: small;
 }
